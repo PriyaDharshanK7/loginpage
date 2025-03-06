@@ -1,7 +1,10 @@
 import { useState } from "react";
+import './Login.css';
 function Login(){
     const [email, setEmail] = useState('');
     const [passwd, setPasswd] = useState('');
+    const [darkMode, setDarkMode] = useState(false);
+    const [msg, setMsg] = useState('');
     const userData = {
         email: 'usertest@gmail.com',
         passwd: 'usertest@123'
@@ -9,11 +12,13 @@ function Login(){
     const handleEventLogin = (e) => {
         e.preventDefault()
         if(email === userData.email && passwd === userData.passwd){
-            alert('Valid Credentials')
+            setMsg('Welcome Back!, '+ email)
         }
         else{
-            alert('Invalid Credentials')
+            setMsg(`Oops! Can't find ${email}, Please Sign Up to continue`)
         }
+        setTimeout(() => 
+            setMsg(''), 5000);
     }
     return(
         <>
@@ -26,6 +31,7 @@ function Login(){
                 <input type = "password" value ={passwd} onChange={(e) => setPasswd(e.target.value)}></input>
                 <input type = "submit" onClick={handleEventLogin}></input>
             </form>
+            {msg && <div className = { `popup ${msg ? "show" : ""} `}> {msg} </div>}
             </div>
         </>
     );
