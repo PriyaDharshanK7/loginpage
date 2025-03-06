@@ -1,0 +1,167 @@
+body {
+    margin: 0;
+    background-color: #f0f2f5;
+  }
+  
+  .logincont {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    position: relative;
+  }
+  
+  .thread {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 2px;
+    height: 160px; /* Slightly overlaps card */
+    background: linear-gradient(to bottom, #888 0%, #888 90%, transparent 100%);
+    transform: translateX(-50%);
+    z-index: 1;
+    transition: transform 0.3s ease;
+  }
+  
+  .logindiv {
+    position: relative;
+    width: 260px;
+    min-height: 360px;
+    padding: 25px;
+    background: #fff;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); /* Deeper shadow */
+    border-radius: 8px;
+    border: 1px solid #ddd; /* Subtle card edge */
+    top: 130px; /* Centered */
+    transform: rotate(1deg); /* Default tilt for hanging */
+    transform-origin: top center; /* Pivot at top */
+    transition: transform 0.3s ease;
+  }
+  
+  .logindiv:before {
+    content: "";
+    position: absolute;
+    top: -14px; /* Slightly larger hole */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 14px;
+    height: 14px;
+    background: #fff;
+    border: 2px solid #888;
+    border-radius: 50%;
+    z-index: 2;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Hole shadow */
+  }
+  
+  .logindiv:hover {
+    animation: cardSway 2s infinite ease-in-out;
+  }
+  
+  .logindiv:hover ~ .thread {
+    animation: threadSway 2s infinite ease-in-out;
+  }
+  
+  @keyframes cardSway {
+    0% { transform: rotate(1deg) translateX(0px); }
+    25% { transform: rotate(3deg) translateX(8px); }
+    50% { transform: rotate(1deg) translateX(0px); }
+    75% { transform: rotate(-2deg) translateX(-8px); }
+    100% { transform: rotate(1deg) translateX(0px); }
+  }
+  
+  @keyframes threadSway {
+    0% { transform: translateX(-50%) translateX(0px) skewX(0deg); }
+    25% { transform: translateX(-50%) translateX(5px) skewX(3deg); }
+    50% { transform: translateX(-50%) translateX(0px) skewX(0deg); }
+    75% { transform: translateX(-50%) translateX(-5px) skewX(-3deg); }
+    100% { transform: translateX(-50%) translateX(0px) skewX(0deg); }
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  h1 {
+    font-size: 26px;
+    color: #333;
+    text-align: center;
+    margin-bottom: 25px;
+    font-weight: 600;
+  }
+  
+  label {
+    margin-bottom: 8px;
+    color: #333;
+    font-weight: 500;
+  }
+  
+  input[type="email"],
+  input[type="password"] {
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+  }
+  
+  .passwd-wrapper {
+    position: relative;
+  }
+  
+  .eye {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #ff6f61;
+    font-size: 14px;
+  }
+  
+  .show-anim {
+    animation: reveal 0.5s ease-in-out;
+  }
+  
+  @keyframes reveal {
+    0% { transform: scale(0.95); opacity: 0.5; }
+    50% { transform: scale(1.05); opacity: 0.8; }
+    100% { transform: scale(1); opacity: 1; }
+  }
+  
+  input[type="submit"] {
+    padding: 12px;
+    background-color: #ff6f61;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 14px;
+    font-weight: 500;
+    margin-top: 20px;
+  }
+  
+  .popup {
+    display: none;
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 10px 20px;
+    background: #4cd550;
+    color: #fff;
+    border-radius: 4px;
+  }
+  
+  .popup.show {
+    display: block;
+    animation: slideIn 0.5s ease-in-out;
+  }
+  
+  @keyframes slideIn {
+    from { transform: translateX(-50%) translateY(-100px); opacity: 0; }
+    to { transform: translateX(-50%) translateY(0); opacity: 1; }
+  }
