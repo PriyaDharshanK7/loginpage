@@ -23,10 +23,14 @@ function Login(){
             setMsg(''), 3000);
     }
     const handleMouseMove = (e) => {
-        const x = (e.clientX - window.innerWidth / 2) / 50; 
-        const y = (e.clientY - window.innerHeight / 2) / 50;
+        const x = (e.clientX - window.innerWidth / 2) / 75; 
+        const y = (e.clientY - window.innerHeight / 2) / 75;
         setMousePos({ x, y });
       };
+    const handleoAuth = (method) => {
+        setMsg(`Logging in with ${method}...`)
+        setTimeout(() => setMsg(''), 3000);
+      };   
     return(
         <>
            <div className="logincont" onMouseMove={handleMouseMove}>
@@ -36,7 +40,7 @@ function Login(){
                         <label> Email id </label>
                         <input type = "email" value ={email} onChange={(e) => setEmail(e.target.value)}></input>
                         <label> Password </label>
-                        <div className="passwd-wrapper">
+                        <div className={`passwd-wrapper ${showPasswd ? "passwd-anim" : ""}`}>
                             <input type={showPasswd ? "text" : "password"} value={passwd} onChange={(e) => setPasswd(e.target.value)} className={showPasswd ? "show-anim" : ""} /> 
                             <span className="eye" onClick={() => setShowPasswd(!showPasswd)}> {showPasswd ? "Hide" : "Show"} </span>     
                         </div>
@@ -44,8 +48,8 @@ function Login(){
                         <div className="oauth2">
                             <p>Or Continue With</p>
                             <div className="oauthbtns">
-                                <button className="google">Google</button>
-                                <button className="fb">Facebook</button>
+                                <button type = "button" className="google" onClick={() => handleoAuth('Google')}>Google</button>
+                                <button type = "button" className="fb" onClick={() => handleoAuth('Facebook')}>Facebook</button>
                             </div>
                         </div>
                         <a href = "#" className="forgothref"> Forgot Password? </a>

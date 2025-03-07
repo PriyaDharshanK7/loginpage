@@ -15,13 +15,13 @@ body {
   
   .logindiv {
     width: 260px;
-    min-height: 360px;
+    min-height: 400px;
     padding: 25px;
     background: #fff;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
     border-radius: 8px;
     border: 1px solid #ddd;
-    transition: transform 0.1s ease; /* Smooth tracking */
+    transition: transform 0.2s ease-out; /* Smooth tracking */
   }
   
   form {
@@ -54,6 +54,10 @@ body {
   
   .passwd-wrapper {
     position: relative;
+    transition: all 0.3s ease;
+  }
+  .passwd-anim{
+    animation: passwdShake 0.5s ease-in-out;
   }
   
   .eye {
@@ -64,14 +68,24 @@ body {
     cursor: pointer;
     color: #ff6f61;
     font-size: 14px;
+    transition: color 0.3s ease;
   }
-  
-  .show-anim {
-    animation: reveal 0.5s ease-in-out;
+  .eye:hover {
+    color: #e65a50;
   }
-  
+
+  .show-anim{
+    animation: reveal 0.4s ease-in-out;
+  }
+  @keyframes passwdShake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    50% { transform: translateX(5px); }
+    75% { transform: translateX(-5px); }
+    100% { transform: translateX(0); }
+  }
   @keyframes reveal {
-    0% { transform: scale(0.95); opacity: 0.5; }
+    0% { transform: scale(0.95); opacity: 0; }
     50% { transform: scale(1.05); opacity: 0.8; }
     100% { transform: scale(1); opacity: 1; }
   }
