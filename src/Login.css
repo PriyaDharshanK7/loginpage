@@ -105,7 +105,55 @@ body {
     display: block;
     animation: slideIn 0.5s ease-in-out;
   }
+  .forgothref {
+    color: #ff6f61;
+    text-decoration: none;
+    margin-top: 20px;
+    text-shadow: #777;
+    text-align: right;
+    padding: 20px;
+  }
+  .forgothref:hover{
+    text-decoration: wavy;
+  }
+
+  .oauth2{
+    margin-top: 20px;
+    text-align: center;
+  }
+
+  .oauth2 p{
+    color : #777;
+    margin-bottom: 15px;
+    position: relative;
+    margin-bottom: 20px;
+  }
   
+  .oauthbtns{
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+  }
+  .google{
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background: #fff;
+    cursor: pointer;
+    transition: all 0.3s;
+    color:#ff6f61
+  }
+  .fb{
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background: #fff;
+    cursor: pointer;
+    transition: all 0.3s;
+    color: #ff6f61;
+  }
   @keyframes slideIn {
     from { transform: translateX(-50%) translateY(-100px); opacity: 0; }
     to { transform: translateX(-50%) translateY(0); opacity: 1; }

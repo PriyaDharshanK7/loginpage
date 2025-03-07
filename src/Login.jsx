@@ -14,10 +14,10 @@ function Login(){
     const handleEventLogin = (e) => {
         e.preventDefault()
         if(email === userData.email && passwd === userData.passwd){
-            setMsg('Welcome Back!, '+ email)
+            setMsg('Hi, Welcome Back!, '+ email)
         }
         else{
-            setMsg(`Oops! Can't find ${email}, Please Sign Up to continue`)
+            setMsg(`Oops! User Email not found, Please Sign Up to continue`)
         }
         setTimeout(() => 
             setMsg(''), 3000);
@@ -31,7 +31,7 @@ function Login(){
         <>
            <div className="logincont" onMouseMove={handleMouseMove}>
                 <div className="logindiv" style = {{transform: `translate(${mousePos.y}px) rotate(${mousePos.x / 5}deg)`}}>
-                    <h1>Login Form</h1>
+                    <h1>Welcome Back !</h1>
                     <form id = "loginform" onSubmit={handleEventLogin}>
                         <label> Email id </label>
                         <input type = "email" value ={email} onChange={(e) => setEmail(e.target.value)}></input>
@@ -40,7 +40,16 @@ function Login(){
                             <input type={showPasswd ? "text" : "password"} value={passwd} onChange={(e) => setPasswd(e.target.value)} className={showPasswd ? "show-anim" : ""} /> 
                             <span className="eye" onClick={() => setShowPasswd(!showPasswd)}> {showPasswd ? "Hide" : "Show"} </span>     
                         </div>
-                        <input type = "submit" form="loginform" />
+                        <input type = "submit" form="loginform"  value={"Login"}/>
+                        <div className="oauth2">
+                            <p>Or Continue With</p>
+                            <div className="oauthbtns">
+                                <button className="google">Google</button>
+                                <button className="fb">Facebook</button>
+                            </div>
+                        </div>
+                        <a href = "#" className="forgothref"> Forgot Password? </a>
+                        
                     </form>
                 </div>
                 {msg && <div className = { `popup ${msg ? "show" : ""} `}> {msg} </div>}
