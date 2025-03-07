@@ -6,6 +6,7 @@ function Login(){
     //const [darkMode, setDarkMode] = useState(false);
     const [showPasswd, setShowPasswd] = useState(false);
     const [msg, setMsg] = useState('');
+    const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
     const userData = {
         email: 'usertest@gmail.com',
         passwd: 'usertest@123'
@@ -21,11 +22,15 @@ function Login(){
         setTimeout(() => 
             setMsg(''), 3000);
     }
+    const handleMouseMove = (e) => {
+        const x = (e.clientX - window.innerWidth / 2) / 50; 
+        const y = (e.clientY - window.innerHeight / 2) / 50;
+        setMousePos({ x, y });
+      };
     return(
         <>
-           <div className="logincont">
-                <div className="thread"></div>
-                <div className="logindiv">
+           <div className="logincont" onMouseMove={handleMouseMove}>
+                <div className="logindiv" style = {{transform: `translate(${mousePos.y}px) rotate(${mousePos.x / 5}deg)`}}>
                     <h1>Login Form</h1>
                     <form id = "loginform" onSubmit={handleEventLogin}>
                         <label> Email id </label>
