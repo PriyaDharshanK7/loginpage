@@ -8,7 +8,7 @@ function Login(){
     const [msg, setMsg] = useState('');
     const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
     const userData = {
-        email: 'usertest@gmail.com',
+        email: 'user@test.com',
         passwd: 'usertest@123'
     }
     const handleEventLogin = (e) => {
