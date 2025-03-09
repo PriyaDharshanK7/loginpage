@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://PriyaDharshan.github.io/loginpage",
+  "homepage": "https://PriyaDharshanK7.github.io/loginpage",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
